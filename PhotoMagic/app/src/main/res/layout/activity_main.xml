@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.photo_magic.photomagic.ui.activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+      <!--  <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/main_title_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="PhotoMagic"
+                android:textColor="@color/neutral_white"
+                android:textSize="20dp" />
+
+        </RelativeLayout>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/photo_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/relativeLayout" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/new_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:src="@drawable/ic_camera_enhance_white_24dp"
+            app:backgroundTint="@color/main_title_color" />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
