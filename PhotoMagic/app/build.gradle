@@ -95,4 +95,8 @@
         //compile 'com.facebook.android:facebook-share:[4,5)'
         implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
 
+        //compile for zoom ImagenView
+        compile 'com.jsibbold:zoomage:1.1.0'
+
+
     }

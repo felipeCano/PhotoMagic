@@ -132,7 +132,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mPhotoRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         AnimationSet set = new AnimationSet(true);
         Animation animation = new AlphaAnimation(0.0f, 1.0f);
-        animation.setDuration(1000);
+        animation.setDuration(1500);
         set.addAnimation(animation);
 
         animation = new TranslateAnimation(

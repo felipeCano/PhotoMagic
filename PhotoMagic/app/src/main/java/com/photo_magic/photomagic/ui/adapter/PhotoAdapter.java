@@ -43,6 +43,7 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import bolts.Task;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -171,7 +172,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
                 deletePhoto.deleteAllFromRealm();
                 mRealm.commitTransaction();
                 mListItems.remove(position);
-                notifyItemChanged(position);
+                notifyDataSetChanged();
             } catch (Exception e) {
 
             }
@@ -202,11 +203,14 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
 
         holder.mbuttonSaveLocal.setOnClickListener(view -> {
 
-            if(!photoItem.isSaved()){
+            if (!photoItem.isSaved()) {
                 savePhotoLocal(photoItem, holder.mViewContainer);
                 photoItem.setSaved(true);
-                notifyItemChanged(position);
-            }else{
+                // notifyItemChanged(position);
+                notifyDataSetChanged();
+
+
+            } else {
                 showInfo(holder.mViewContainer, "La imagen ya fue guardada ");
             }
 
@@ -245,13 +249,13 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
 
     }
 
-    private void showInfo(View view, String mensaje){
+    private void showInfo(View view, String mensaje) {
 
         Snackbar snackbar = Snackbar
                 .make(view, mensaje, Snackbar.LENGTH_LONG);
 
         View snackBarView = snackbar.getView();
-        snackBarView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.main_title_color) );
+        snackBarView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.main_title_color));
 
         snackbar.show();
 
@@ -261,6 +265,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
         this.mListItems.add(item);
         this.notifyDataSetChanged();
     }
+
+
 
     public PhotoItem getItem(int position) {
         return mListItems.get(position);
